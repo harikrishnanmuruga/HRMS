@@ -3,9 +3,7 @@ package com.HRMS.controller;
 import com.HRMS.entity.Company;
 import com.HRMS.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +17,27 @@ public class CompanyController {
         return companyService.saveEmployee(company);
     }
 
-        @PostMapping("/createEmployees")
-        public List<Company> createEmployees(@RequestBody List<Company> employees) {
-            return companyService.saveEmployees(employees);
-        }
+    @PostMapping("/createEmployees")
+    public List<Company> createEmployees(@RequestBody List<Company> employees) {
+        return companyService.saveEmployees(employees);
     }
+
+    @GetMapping("/employees")
+    public List<Company> findAllEmployee(){
+        return companyService.getEmployees();
+    }
+
+    @GetMapping("/employeeById/{id}")
+    public Company getCompanyById(@PathVariable int id){
+        return companyService.getCompanyById(id);
+    }
+    @DeleteMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable int id){
+        return companyService.deleteEmployee(id);
+    }
+
+    @PutMapping ("/updateEmployee")
+    public Company updateEmployee(@RequestBody Company company){
+        return companyService.updateEmployee(company);
+    }
+}

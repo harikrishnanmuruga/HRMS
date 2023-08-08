@@ -4,10 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-
 import java.util.Date;
-import java.util.Optional;
+
 
 @Entity
 @Data
@@ -38,7 +36,7 @@ public class Company {
 
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_date", nullable = false, updatable = false)
+    @Column(name = "created_date")
     private Date createdDate;
 
 
