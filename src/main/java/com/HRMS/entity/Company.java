@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "company_group")
+@Table(name = "company_group",schema = "isys_erp")
 
 public class Company {
 
@@ -37,12 +37,12 @@ public class Company {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date")
-    private Date createdDate;
+    private Date createdDate = new Date();
 
 
 
    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_date")
-    private Date updatedDate;
+    private Date updatedDate = new Date();
 }
 

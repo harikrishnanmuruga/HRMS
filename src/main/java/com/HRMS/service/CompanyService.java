@@ -2,6 +2,7 @@ package com.HRMS.service;
 
 import com.HRMS.entity.Company;
 import com.HRMS.repository.CompanyRepository;
+import com.sun.jdi.event.ExceptionEvent;
 import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,7 @@ public class CompanyService {
     }
 
     public Company getCompanyById(long id){
+
         return companyRepository.findById(id).orElse(null);
     }
     public String deleteEmployee(long id){
@@ -43,6 +45,8 @@ public class CompanyService {
         existingEmployee.setNo(company.getNo());
         existingEmployee.setDescription(company.getDescription());
         existingEmployee.setStatus(company.getStatus());
+        existingEmployee.setCreatedBy(company.getCreatedBy());
+        existingEmployee.setUpdatedBy(company.getUpdatedBy());
         return companyRepository.save(existingEmployee);
     }
 }
