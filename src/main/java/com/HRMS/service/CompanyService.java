@@ -31,11 +31,11 @@ public class CompanyService {
         return companyRepository.findAll();
     }
 
-    public Company getCompanyById(int id){
-        return companyRepository.findById((long)id).orElse(null);
+    public Company getCompanyById(long id){
+        return companyRepository.findById(id).orElse(null);
     }
-    public String deleteEmployee(int id){
-        companyRepository.deleteById((long)id);
+    public String deleteEmployee(long id){
+        companyRepository.deleteById(id);
         return "employee removed !! "+id;
     }
     public Company updateEmployee(Company company) {

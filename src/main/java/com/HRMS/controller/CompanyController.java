@@ -28,11 +28,11 @@ public class CompanyController {
     }
 
     @GetMapping("/employeeById/{id}")
-    public Company getCompanyById(@PathVariable int id){
+    public Company getCompanyById(@PathVariable long id){
         return companyService.getCompanyById(id);
     }
     @DeleteMapping("/delete/{id}")
-    public String deleteEmployee(@PathVariable int id){
+    public String deleteEmployee(@PathVariable long id){
         return companyService.deleteEmployee(id);
     }
 
